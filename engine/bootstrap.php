@@ -17,6 +17,9 @@ try {
     }
 
     $cms = new Cms($di);
+    echo "<pre>";
+    print_r($cms->run());
+    echo "</pre>";
 
 } catch (\Exception $e) {
     echo $e->getMessage();
