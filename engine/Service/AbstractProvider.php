@@ -1,6 +1,6 @@
 <?php
 
-namespace Engine\Service\Database;
+namespace Engine\Service;
 
 use Engine\DI\DI;
 
