@@ -18,8 +18,8 @@ class DI
         return $this->has($key);
     }
 
-    private function has($key): DI|false
+    private function has($key): mixed
     {
-        return $this->container[$key] ? $this->container[$key] : false;
+        return $this->container[$key] ? $this->container[$key] : null;
     }
 }

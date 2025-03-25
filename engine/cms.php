@@ -3,7 +3,7 @@
 namespace Engine;
 
 class Cms {
-    
+
     private $di;
 
     public function __construct($di)
@@ -13,6 +13,6 @@ class Cms {
 
     public function run()
     {
-
+        return '';
     }
 }

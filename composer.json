@@ -1,0 +1,15 @@
+{
+    "name": "user/cms3",
+    "autoload": {
+        "psr-4": {
+            "Engine\\": "engine/",
+            "Engine\\DI\\": "engine/DI"
+        }
+    },
+    "authors": [
+        {
+            "name": "cms3"
+        }
+    ],
+    "require": {}
+}
