@@ -13,6 +13,6 @@ class Cms {
 
     public function run()
     {
-        return '';
+        return $this->di;
     }
 }
