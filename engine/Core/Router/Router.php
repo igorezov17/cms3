@@ -2,11 +2,14 @@
 
 namespace Engine\Core\Router;
 
+use Engine\Core\Router\UrlDispatch;
+
 class Router
 {
 
     private $host;
     private $routes = [];
+    private $dispatcher;
 
     public function __construct($host)
     {
@@ -20,5 +23,20 @@ class Router
             'controller' => $controller,
             'method'     => $method
         ];
+    }
+
+
+    public function dispatch($method, $uri)
+    {
+
+    }
+
+    public function getDispacher($method, $uri)
+    {
+        if ($this->dispatcher == null) {
+
+        }
+
+        return $this->dispatcher;
     }
 }
