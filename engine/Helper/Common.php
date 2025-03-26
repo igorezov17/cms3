@@ -21,6 +21,12 @@ class Common
 
     public static function getUrl()
     {
-        return $_SERVER['REQUEST_URI'];
+        $pathUrl = $_SERVER['REQUEST_URI'];
+
+        if ($position = strpos($pathUrl, '?')) {
+            $pathUrl = substr($pathUrl, 0, $position);
+        }
+
+        return $pathUrl;
     }
 }
