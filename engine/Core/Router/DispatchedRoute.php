@@ -2,12 +2,12 @@
 
 namespace Engine\Core\Router;
 
-class DispatchRoute
+class DispatchedRoute
 {
     private $controller;
     private $parameters;
 
-    public function __construct($controller, $parameters)
+    public function __construct($controller, $parameters = [])
     {
         $this->controller = $controller;
         $this->parameters = $parameters;

@@ -34,7 +34,8 @@ class Router
     public function getDispacher($method, $uri)
     {
         if ($this->dispatcher == null) {
-
+            $dispatch = new UrlDispatcher();
+            $dispatch->dispatch($method, $uri);
         }
 
         return $this->dispatcher;
