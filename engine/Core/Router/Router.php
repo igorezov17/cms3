@@ -28,14 +28,20 @@ class Router
 
     public function dispatch($method, $uri)
     {
-
+        return $this->getDispacher($method, $uri)->dispatch($method, $uri);
     }
 
-    public function getDispacher($method, $uri)
+    public function getDispacher()
     {
         if ($this->dispatcher == null) {
-            $dispatch = new UrlDispatcher();
-            $dispatch->dispatch($method, $uri);
+
+            print_r("test . <br>");
+
+            $this->dispatcher = new UrlDispatcher();
+
+            foreach ($this->routes as $route) {
+                $this->dispatcher->register($route['method'], $route['pattern'], $route['controller']);
+            }
         }
 
         return $this->dispatcher;
