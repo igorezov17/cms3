@@ -13,6 +13,11 @@ class HomeController extends Controller
 
     public function index()
     {
-        return "This is HomeController and method index";
+        print_r("This is HomeController and method index");
+    }
+
+    public function news()
+    {
+        print_r("This is HomeController and method NEWS");
     }
 }
