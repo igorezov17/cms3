@@ -18,7 +18,7 @@ class DI
         return $this->has($key);
     }
 
-    private function has($key): mixed
+    private function has($key)
     {
         return $this->container[$key] ? $this->container[$key] : null;
     }
