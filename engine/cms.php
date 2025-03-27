@@ -19,12 +19,19 @@ class Cms {
     public function run()
     {
         $this->router->add('home', '/', 'HomeController:index');
-        $this->router->add('user', '/user/34', 'UserController:indexUs');
+        $this->router->add('news', '/news', 'HomeController:news');
         $routeDispatch = $this->router->dispatch(Common::getMethod(), Common::getUrl());
 
-        list($cl, $ac) = explode(':', $routeDispatch->getController());
 
-        return $routeDispatch ;
+
+        list($class, $action) = explode(':', $routeDispatch->getController(), 2);
+
+
+
+        $controller = "\\Cms\\Controller\\" . $class; 
+        call_user_func_array([new $controller($this->di), $action], $routeDispatch->getParameters());
+
+        // return $class . " = " . $action;
 
     }
 }
