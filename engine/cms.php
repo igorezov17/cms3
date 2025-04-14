@@ -21,9 +21,9 @@ class Cms {
     {
 
         try {
-            $this->router->add('home', '/', 'HomeController:index');
-            $this->router->add('news', '/news', 'HomeController:news');
-            $this->router->add('news_single', '/news/(id:int)', 'HomeController:news');
+
+            require_once __DIR__ . '/../cms/Routes.php';
+
             $routeDispatch = $this->router->dispatch(Common::getMethod(), Common::getUrl());
     
             if ($routeDispatch == null) {
@@ -31,8 +31,6 @@ class Cms {
             }
     
             list($class, $action) = explode(':', $routeDispatch->getController(), 2);
-    
-    
     
             $controller = "\\Cms\\Controller\\" . $class; 
             $parameters = $routeDispatch->getParameters() ? $routeDispatch->getParameters() : [];

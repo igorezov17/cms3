@@ -11,10 +11,7 @@ class Provider extends AbstractProvider
 
     public function init()
     {
-        $router = new Router('http://cms3/');
-
-        // $router->add('home', '/', 'HomeController');
-
+        $router = new Router('http://cms3/'); 
         $this->di->set($this->serviceName, $router);
     }
 }
