@@ -34,9 +34,6 @@ class Router
     public function getDispacher()
     {
         if ($this->dispatcher == null) {
-
-            print_r("test . <br>");
-
             $this->dispatcher = new UrlDispatcher();
 
             foreach ($this->routes as $route) {

@@ -54,7 +54,7 @@ class UrlDispatcher
             $pattern = '#^' . $route . '$#s';
 
             if (preg_match($pattern, $uri, $parameters)) {
-                return new DispatchedRoute($controller, $parameters);;
+                return new DispatchedRoute($controller, $parameters);
             }
         }
     }

@@ -2,15 +2,8 @@
 
 namespace Cms\Controller;
 
-use Engine\Controller;
-
-class HomeController extends Controller
+class HomeController extends CmsController
 {
-    public function __construct($di)
-    {
-        parent::__construct($di);
-    }
-
     public function index()
     {
         print_r("This is HomeController and method index");
