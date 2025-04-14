@@ -9,8 +9,8 @@ class HomeController extends CmsController
         print_r("This is HomeController and method index");
     }
 
-    public function news()
+    public function news($id = null)
     {
-        print_r("This is HomeController and method NEWS");
+        print_r("This is HomeController and method NEWS = " . $id);
     }
 }
