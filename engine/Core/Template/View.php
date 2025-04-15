@@ -2,13 +2,15 @@
 
 namespace Engine\Core\Template;
 
-use Exception;
+use Engine\Core\Template\Theme;
 
 class View
 {
+    protected $theme;
+
     public function __construct()
     {
-        
+        $this->theme = new Theme();
     }
 
     public function render($template, $vars = [])
@@ -21,6 +23,7 @@ class View
             );
         }
 
+        $this->theme->setData($vars);
         extract($vars);
 
         ob_start();
