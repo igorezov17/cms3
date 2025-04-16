@@ -22,17 +22,22 @@ class Cms {
 
         try {
 
-            require_once __DIR__ . '/../cms/Routes.php';
+
+
+            require_once __DIR__ . '/../' . mb_strtolower(ENV) . '/Routes.php';
 
             $routeDispatch = $this->router->dispatch(Common::getMethod(), Common::getUrl());
     
             if ($routeDispatch == null) {
+
+
                 $routeDispatch = new DispatchedRoute('ErrorController:page404');
             }
+
     
             list($class, $action) = explode(':', $routeDispatch->getController(), 2);
     
-            $controller = "\\Cms\\Controller\\" . $class; 
+            $controller = '\\' . ENV . '\\Controller\\' . $class; 
             $parameters = $routeDispatch->getParameters() ? $routeDispatch->getParameters() : [];
             call_user_func_array([new $controller($this->di), $action], $parameters);
         } catch(\Exception $e) {
