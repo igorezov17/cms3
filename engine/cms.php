@@ -22,8 +22,6 @@ class Cms {
 
         try {
 
-
-
             require_once __DIR__ . '/../' . mb_strtolower(ENV) . '/Routes.php';
 
             $routeDispatch = $this->router->dispatch(Common::getMethod(), Common::getUrl());

@@ -15,7 +15,7 @@ class View
 
     public function render($template, $vars = [])
     {
-        $templatePath = ROOT_DIR . '/content/themes/default/' . $template . '.php';
+        $templatePath = $this->getTemplatePath($template, ENV);
 
         if (!is_file($templatePath)) {
             throw new \InvalidArgumentException(
@@ -38,6 +38,15 @@ class View
         }
 
         echo ob_get_clean();
+    }
+
+    private function getTemplatePath($template, $env = null)
+    {
+        if ($env == 'Cms') {
+            return ROOT_DIR . '/content/theme/default/' . $template . '.php';
+        } 
+
+        return ROOT_DIR . '/View/' . $template . '.php';
     }
 }
 
