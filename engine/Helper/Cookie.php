@@ -2,7 +2,7 @@
 
 namespace Engine\Helper;
 
-class Coockie
+class Cookie
 {
     public static function set($key, $value, $time = 31536000)
     {
@@ -18,7 +18,7 @@ class Coockie
         return null;
     }
 
-    public function delete($key)
+    public static function delete($key)
     {
         if ($_COOKIE[$key]) {
             self::set($_COOKIE[$key], '', -3600);
