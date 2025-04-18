@@ -19,14 +19,6 @@ class Connection
 
     private function connect() 
     {
-        // $config = [
-        //     "db_name" => "",
-        //     "host" => "127.0.0.1",
-        //     "username" => "root",
-        //     "password" => "",
-        //     "charset" => "utf8"
-        // ];
-
         $config = Config::file('database');
 
         $dsn = "mysql:host=".$config['host'].";db_name=".$config['db_name'].";charset=".$config['charset'];
