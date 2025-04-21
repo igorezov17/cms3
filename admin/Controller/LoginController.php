@@ -17,13 +17,18 @@ class LoginController extends Controller
         parent::__construct($di);
 
         $this->auth = new Auth();
+
+        if ($this->auth->hashUser() !== null) {
+            $this->auth->authorize($this->auth->hashUser());
+        }
+
+        if ($this->auth->authorized()) {
+            header('Location: /admin/', true, 301);
+        }
     }
 
     public function form()
     {
-
-        print_r($_COOKIE);
-
         $this->view->render('login');
     }
 
@@ -31,8 +36,33 @@ class LoginController extends Controller
     {
         $params = $this->request->post;
 
-        $this->auth->authorize('testUser');
+        $query = $this->db->query('
+            SELECT *
+            FROM `user`
+            WHERE email="' . $params['email'] . '"
+            AND password="' . md5($params['password']) . '"
+            LIMIT 1
+        ');
 
-        print_r($params);
+        if (!empty($query)) {
+            $user = $query[0];
+
+            if ($user['role'] == 'admin') {
+
+                $hash = md5($user['id'] . $user['email'] . $user['password'] . $this->auth->salt());
+
+                print_r("111");
+
+                $this->db->execute('
+                    UPDATE `user`
+                    SET hash = "' . $hash . '"
+                    WHERE id = "' . $user['id'] . '"
+                ');
+
+                $this->auth->authorize($hash);
+
+                header('Location: /admin/login/', true, 301);
+            }
+        }
     }
 }

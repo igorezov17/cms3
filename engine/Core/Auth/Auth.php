@@ -10,16 +10,16 @@ class Auth implements AuthInterface
 
     protected $authorized = false;
 
-    protected $user;
+    protected $hash_user;
 
     public function authorized()
     {
         return $this->authorized;
     }
 
-    public function getUser()
+    public function hashUser()
     {
-        return $this->user;
+        return Cookie::get('auth_user');
     }
 
     public function authorize($user)
@@ -28,7 +28,7 @@ class Auth implements AuthInterface
         Cookie::set('auth_user', $user);
 
         $this->authorized = true; 
-        $this->user = $user; 
+        $this->hash_user = $user; 
     }
 
     public function unAuthorized()
@@ -37,7 +37,7 @@ class Auth implements AuthInterface
         Cookie::delete('auth_user');
 
         $this->authorized = false;
-        $this->user = null;
+        $this->hash_user = null;
     }
 
     public static function salt()
