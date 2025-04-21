@@ -25,13 +25,13 @@ class Connection
         return $this;
     }
 
-    public function execute($sql)
+    public function execute($sql, $values = [])
     {
         $sth = $this->link->prepare($sql);
         return $sth->execute();
     }
 
-    public function query($sql)
+    public function query($sql, $values = [])
     {
 
         $sth = $this->link->prepare($sql);
