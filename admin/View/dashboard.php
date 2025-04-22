@@ -54,7 +54,7 @@
                 </div>
                 
                 <div class="right-toolbar">
-                    <a href="?logout=1">
+                    <a href="/admin/logout/">
                         <i class="icon-logout icons"></i> Logout
                     </a>
                 </div>

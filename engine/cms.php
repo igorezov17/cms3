@@ -32,9 +32,10 @@ class Cms {
                 $routeDispatch = new DispatchedRoute('ErrorController:page404');
             }
 
+
+
     
             list($class, $action) = explode(':', $routeDispatch->getController(), 2);
-
     
             $controller = '\\' . ENV . '\\Controller\\' . $class; 
             $parameters = $routeDispatch->getParameters() ? $routeDispatch->getParameters() : [];

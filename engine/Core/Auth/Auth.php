@@ -26,18 +26,12 @@ class Auth implements AuthInterface
     {
         Cookie::set('auth_authorize', true);
         Cookie::set('auth_user', $user);
-
-        $this->authorized = true; 
-        $this->hash_user = $user; 
     }
 
     public function unAuthorized()
     {
         Cookie::delete('auth_authorize');
         Cookie::delete('auth_user');
-
-        $this->authorized = false;
-        $this->hash_user = null;
     }
 
     public static function salt()
