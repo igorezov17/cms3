@@ -18,8 +18,8 @@ class OrderController
         return $this->name;
     }
 
-    private function has()
+    private function has($key)
     {
-        return $this->name ?? null;
+        return $this->name[$key] ?? 'this item not found';
     }
 }
