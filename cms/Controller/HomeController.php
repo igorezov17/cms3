@@ -18,4 +18,12 @@ class HomeController extends CmsController
     {
         print_r("This is HomeController and method NEWS = " . $id);
     }
+
+    public function getData():array
+    {
+        return [
+            'name' => 'Martin',
+            'surname' => 'Jonson'
+        ];
+    }
 }
