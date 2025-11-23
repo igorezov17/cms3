@@ -3,7 +3,8 @@
 class OrderController
 {
     public function __construct(
-        public string $name;
+        public string $name,
+        private int $age
     )
     {}
 
@@ -20,5 +21,10 @@ class OrderController
     private function has()
     {
         return $this->name ?? null;
+    }
+
+    public function setAge():void
+    {
+        $this->age = $age;
     }
 }
