@@ -22,9 +22,4 @@ class OrderController
     {
         return $this->name ?? null;
     }
-
-    public function setAge():void
-    {
-        $this->age = $age;
-    }
 }
